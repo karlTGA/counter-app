@@ -1,23 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
+  let [value] = useState(0);
+
+  // 1. Fix the bug in the function
+  const handleIncrement = () => {
+    value += value;
+  };
+
+  // 2. Make it possible to set a manual value
+  // (optional: what is the correct type of event variable)
+  // @ts-expect-error
+  const handleInputChange = (event) => {};
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      <header className="app-header">
+        <h1>Counter App:</h1>
+        <div className="current-value-container">
+          Current Value
+          <input
+            disabled
+            type="text"
+            value={value}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <button className="increment-button" onClick={handleIncrement}>
+          Increment
+        </button>
+
+        {/* 3. Add a red reset button with an confirm dialog */}
       </header>
     </div>
   );
