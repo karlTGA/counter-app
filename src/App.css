@@ -37,3 +37,14 @@
   color: aliceblue;
   font-weight: 600;
 }
+
+.reset-button {
+  margin-top: 30px;
+  font-size: large;
+  background-color: red;
+  padding: 15px 40px;
+  border-color: aliceblue;
+  border-radius: 5px;
+  color: aliceblue;
+  font-weight: 600;
+}
